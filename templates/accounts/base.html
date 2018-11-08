@@ -1,0 +1,14 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'accounts/base/head.html' %}
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% include 'accounts/base/footer.html' %}
+        {% include 'accounts/base/js.html' %}
+    </body>
+</html>

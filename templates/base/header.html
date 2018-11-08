@@ -1,0 +1,66 @@
+{% url 'list' as home_url %}
+{% url 'about' as about_url %}
+{% url 'contact_page' as contact_url %}
+{% url 'subscriber_login_page' as login_url %}
+{% url 'subscriber_register_page' as register_url %}
+{% url 'subscriber_logout_page' as logout_url %}
+
+<header class="container-fluid bg-dark text-light">
+    <section class="container">
+    <h1 class="display-3 pt-2">{{ title }}</h1>
+    <hr>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topnav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topnav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a 
+                    class="nav-link {% if request.path == home_url %} active{% endif %}"
+                    href="{{ home_url }}">
+                        Home
+                    </a>
+                </li>
+                {% for i in pages %}
+                    <li class="nav-item">
+                        <a 
+                        class="nav-link {% if request.path == i.get_absolute_url %} active{% endif %}"
+                        href="{{ i.get_absolute_url }}">
+                            {{ i.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                <a 
+                    class="nav-link {% if request.path == contact_url %} active{% endif %}"
+                    href="{{ contact_url }}">
+                        Contact Us
+                </a>
+                {% if request.user.is_authenticated %}
+                <a 
+                    class="nav-link {% if request.path == logout_url %} active{% endif %}"
+                    href="{{ logout_url }}">
+                        Logout
+                </a>
+                {% else %}
+                <a 
+                    class="nav-link {% if request.path == login_url %} active{% endif %}"
+                    href="{{ login_url }}">
+                        Login
+                </a>
+                <a 
+                    class="nav-link {% if request.path == register_url %} active{% endif %}"
+                    href="{{ register_url }}">
+                        Register
+                </a>
+                {% endif %}
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'post_search' %}">{% csrf_token %}
+            <!--<input type="text" class="form-control" placeholder="I want to Search... ">-->
+            {{ search }}
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav><br>
+    </section>
+</header>

@@ -1,0 +1,4 @@
+static_cdn/
+Procfile
+runtime.txt
+db.sqlite3
