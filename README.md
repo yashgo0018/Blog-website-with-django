@@ -1,6 +1,5 @@
 Blog Website with Django
 ===========
-___________
 ### To setup this website on your system:-
 **Step1:-** Create a virtual env.
 
