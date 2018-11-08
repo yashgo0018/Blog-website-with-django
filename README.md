@@ -34,4 +34,4 @@ then it will ask username, email, password, confirm password. Type those correct
 
 #### Then You can access Admin on http://localhost:8000/admin/
 
-### ***Created By:*** Yash Goyal ***with*** :sparkling_heart:
+### ***Created By:*** Yash Goyal ***with*** love
