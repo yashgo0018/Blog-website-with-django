@@ -27,9 +27,9 @@ Blog Website with Django
 #### Now your website will be ready on url http://localhost:8000 and on http://127.0.0.1:8000
 
 You can create Superuser by the command
-```cmd
-python3 manage.py createsuperuser
-```
+
+    python3 manage.py createsuperuser
+
 then it will ask username, email, password, confirm password. Type those correctly and the user will be created. 
 
 #### Then You can access Admin on http://localhost:8000/admin/
