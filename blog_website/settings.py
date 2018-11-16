@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SITE_TITLE = 'Blog Title'
+SITE_TITLE = 'How Tos'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'igp6vqa4jo4^qy5^r)88%a*schd*tk)(qfcu6w3v(d1(kf^*ct'

@@ -1,14 +1,10 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
+
 {% block content %}
-<div class="row">
-    <div class="col-md-8">
-        <img class="col-md-12 mb-2" src="{{ post.thumbnail.url }}">
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.description | safe }}</p>
-    </div>
-    <div class="col-md-4">
-        {% include 'base/sidebar.html' %}
-    </div>
-</div>
+    <img class="col-md-12 mb-2" src="{{ post.thumbnail.url }}">
+    <p>{{ post.description | safe }}</p>
 {% endblock content %}

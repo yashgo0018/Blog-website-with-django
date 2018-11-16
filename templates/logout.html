@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
+{% block title %}Logout{% endblock %}
+
+{% block page_title %}Logout{% endblock %}
+
 {% block content %}
-<h1>Logout</h1>
 <form method='POST'>
     {% csrf_token %}
     <input type='submit' class='btn btn-danger' value='logout'>

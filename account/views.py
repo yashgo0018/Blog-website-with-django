@@ -28,7 +28,10 @@ def subscriber_login_page(request):
         return redirect('subscriber_logout_page')
     searchform = SearchForm()
     form = SubscriberLoginForm(request.POST or None)
+    posts = Post.objects.get_published()[0:6]
     context={
+        'posts'     : posts,
+        'page_title': 'Login',
         'form'      : form,
         'search'    : searchform,
         'pages'     : Page.objects.get_published(),
@@ -52,7 +55,9 @@ def subscriber_logout_page(request):
         return redirect('subscriber_login_page')
     else:
         searchform = SearchForm()
+        posts = Post.objects.get_published()[0:6]
         context={
+            'posts'     : posts,
             'pages'   :Page.objects.get_published(),
             'search'    : searchform,
         }
@@ -64,8 +69,11 @@ def subscriber_register_page(request):
         return redirect('subscriber_logout_page')
     form = RegisterForm(request.POST or None)
     searchform = SearchForm()
+    posts = Post.objects.get_published()[0:6]
     context={
         'form'      : form,
+        'page_title': 'Register',
+        'posts'     : posts,
         'search'    : searchform,
         'pages'   :Page.objects.get_published(),
     }

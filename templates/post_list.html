@@ -1,26 +1,22 @@
 {% extends 'base.html' %}
 
+{% block title %}Blog{% endblock %}
+
+{% block page_title %}Recent Posts{% endblock %}
+
 {% block content %}
-    <h1>Recent Posts</h1>
-    <hr>
-    <div class="row">
-        {% for i in qs %}
-            <div class="col-md-6">
-                <div class="card">
-                    <a href="{{ i.get_absolute_url }}">
-                        <img 
-                        class="img-responsive card-img" 
-                        {% if i.thumbnail %} src="{{ i.thumbnail.url }}" {% endif %} 
-                        alt="">
-                    </a>
-                    <h3 class="card-header">{{ i.title }}</h3>
-                </div>
+    {% for i in qs %}
+        <div class="col-md-12">
+            <div class="card">
+                <a href="{{ i.get_absolute_url }}">
+                    <img 
+                    class="img-responsive card-img" 
+                    {% if i.thumbnail %} src="{{ i.thumbnail.url }}" {% endif %} 
+                    alt="">
+                </a>
+                <h3 class="card-header">{{ i.title }}</h3>
             </div>
-            {% if forloop.last %}
-            </div><br>
-            {% elif forloop.counter|divisibleby:2 %}
-            </div><br>
-            <div class="row">
-            {% endif %}
-        {% endfor %}
+        </div>
+        <br>
+    {% endfor %}
 {% endblock %}

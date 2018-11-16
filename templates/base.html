@@ -7,13 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% include "base/css.html" %}
+    <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
 </head>
 <body>
     {% include "base/header.html" %}
     <br>
     <div class="container">
-        {% block content %}{% endblock %}
+        <h1>{% block page_title %}{% endblock %}</h1>
+        <hr style="position:absolute;" class="col-md-6">
+        <div class="row mt-5">
+            <div class="col-md-8">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4 bg-light">
+                <br>
+                {% include 'base/sidebar.html' %}
+            </div>
+        </div>
     </div>
     <br>
     {% include "base/footer.html" %}

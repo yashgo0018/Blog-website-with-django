@@ -19,11 +19,13 @@ This is the view which renders the home page of blog"""
     if request.GET.get('s') != None:
         qs = Post.objects.get_published().filter(title__icontains=request.GET['s'])    
     pages = Page.objects.get_published()
+    posts = Post.objects.get_published()[0:6]
     context = {
         'search'    : searchform,
         'qs'        : qs,
         'title'     : settings.SITE_TITLE,
         'pages'     : pages,
+        'posts'     : posts,
     }
     return render(request, 'post_list.html', context)
     
